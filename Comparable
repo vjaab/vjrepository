@@ -1,0 +1,34 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone implements Comparable<Ideone>
+{	
+	public int compareTo(Ideone ide){
+		if(eid == ide.eid)
+		 return 0;
+		else if (eid > ide.eid)
+		 return 1;
+		 else
+		 return -1;
+	}
+	private int eid;
+	public Ideone(int eid){
+		this.eid = eid;
+	}
+
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		List<Ideone> ide1= new ArrayList<Ideone>();
+		ide1.add(new Ideone(-3));
+		ide1.add(new Ideone(7));
+		ide1.add(new Ideone(-4));
+		Collections.sort(ide1);
+		for(Ideone i: ide1){
+		System.out.println(i.eid);
+		}
+	}
+}
