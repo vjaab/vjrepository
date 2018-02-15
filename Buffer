@@ -1,0 +1,6 @@
+var buf = new Buffer('Hello');
+console.log(buf.toJSON(buf).data);
+
+var buf1 = new Buffer('VJ');
+console.log(buf.toJSON(buf1).data);
+console.log(buf.compare(buf1));
