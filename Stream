@@ -1,0 +1,22 @@
+var fs = require('fs');
+var zlib = require('zlib');
+var buf = new Buffer('One and only VJ');
+var writeStream = fs.createWriteStream('output.txt');
+
+writeStream.write(buf);
+writeStream.end();
+
+writeStream.on('finish', function(){
+	console.log('write done');
+})
+
+writeStream.on('err', function(){
+	console.err(err.stack);
+})
+
+console.log('program write ended');
+
+
+var readStream = fs.createReadStream('New.txt').pipe(zlib.createGzip()).pipe(fs.createWriteStream('New.txt.gz'));
+
+console.log('ended');
