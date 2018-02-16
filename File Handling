@@ -1,0 +1,26 @@
+var fs = require('fs');
+
+fs.open('New.txt','r+',function(err,fd){
+	if(err){
+		return console.error(err.stack);
+	}
+	console.log('file opened successfully'+fd);
+});
+
+fs.unlink('C:/Users/vjaab/Desktop/New.txt', function(err){
+	if(err){
+		console.log('not deleted');
+	}
+	console.log('deleted');
+})
+
+fs.readdir('C:/Users/vjaab/Desktop', function(err, files){
+	if(err){
+		console.log('not deleted');
+	}
+	files.forEach(function(file){
+		console.log(file);
+	});
+});
+
+rmdir - for removing directory
