@@ -1,0 +1,8 @@
+var arr = [{num:1, str:'V'},{num:4,str:'RJ'},{num:3,str:'JJ'}];
+
+console.log(arr.sort(function(val1, val3){
+  if (val1.str > val3.str)
+    return 1;
+  else 
+    return -1;
+}))
