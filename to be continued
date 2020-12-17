@@ -1,0 +1,61 @@
+import React from "react";
+import "./style.css";
+
+class restapi extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      items: [],
+      value: "",
+      flag: false
+    };
+    this.call = this.call.bind(this);
+    this.filterEmail = this.filterEmail.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+  call() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({ items: json });
+      });
+  }
+  filterEmail() {
+    let data = this.state.items;
+    data = data.map(({ name }) => ({ name }));
+    data = data.sort((a, b) =>
+      a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0
+    );
+    console.log(data);
+    var names = data.map(function(name) {
+      return name.name;
+    });
+    console.log(names);
+    this.setState({ items: names });
+    this.setState({ flag: true });
+  }
+  render() {
+    var MakeItem = function(X) {
+      return <option>{X}</option>;
+    };
+
+    return (
+      <div>
+        {this.state.flag ? (
+          <select onChange={this.handleChange}>
+            {this.state.items.map(MakeItem)}
+          </select>
+        ) : (
+          <label>I am not there</label>
+        )}
+        <button onClick={this.call} />
+        <button onClick={this.filterEmail} />
+      </div>
+    );
+  }
+}
+export default restapi;
