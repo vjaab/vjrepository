@@ -1,2 +1,2 @@
 # vjrepository
-has sample codes
+has sample codes from different tech stacks
