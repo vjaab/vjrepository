@@ -8,7 +8,9 @@ function ClassCounter() {
       <button onClick={() => setCount(prevCount => prevCount + 1)}>
         Count + {count}
       </button>
-      <button onClick={() => setCount(count - 5)}>Count {count}</button>
+      <button onClick={() => setCount(prevCount => prevCount - 1)}>
+        Count {count}
+      </button>
     </div>
   );
 }
