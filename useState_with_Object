@@ -1,0 +1,27 @@
+import React, { useState } from "react";
+
+function ClassCounter() {
+  const [name, setName] = useState({ first: "", last: "" });
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name.first}
+        onChange={e => {
+          setName({ ...name, first: e.target.value });
+        }}
+      />
+      <input
+        type="text"
+        value={name.last}
+        onChange={e => {
+          setName({ ...name, last: e.target.value });
+        }}
+      />
+      <h2>{JSON.stringify(name)}</h2>
+    </div>
+  );
+}
+
+export default ClassCounter;
