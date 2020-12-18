@@ -1,3 +1,4 @@
 Array destructuring  in useState
 Spread operator ...
 useEffect is a replacement for componentDidMount, componentDidUpdate, componentWillUnMount
+useEffect is run after every run of the component
