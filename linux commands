@@ -1,0 +1,1 @@
+grep -r phoenix *   ----- to search for specific word in directory and subdirectories.
