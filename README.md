@@ -1,2 +1,0 @@
-# vjrepository
-has sample codes
