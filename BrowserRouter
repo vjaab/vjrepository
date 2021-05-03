@@ -1,10 +1,16 @@
 import React, { Component} from "react";
 import "./style.css";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
 const Home = (props) =>{
   return <div>Home</div>;
+}
+const Home1 = (props) =>{
+  return <div>Home1</div>;
+}
+const Nomatch = (props) =>{
+  return <div>Nomatch</div>;
 }
 class App extends Component{
 
@@ -15,7 +21,11 @@ class App extends Component{
       Hello
      
       </div>
-       <Route path="/home" component= {Home}/>
+      <Switch>
+       <Route exact path="/home" component= {Home}/>
+       <Route exact path="/home/:id" component= {Home1}/>
+       <Route component={Nomatch}/>
+       </Switch>
       </BrowserRouter>    
     );
     
